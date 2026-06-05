@@ -10,9 +10,19 @@ Note: the game is currently in very early development, and therefore unplayable.
 
 ## Useful information
 
-How to install as an app: in progress
+### How to play in GitHub:
+- click "< > Code"
+- select "Codespaces"
+- click "Create codespace on main"
+- wait for Codespace to fully load
+- select "main.py" in the left sidebar
+- install Python/tools if prompted
+- click the play button in the upper right-hand corner; if it doesn't show up, reload the page
+
+### How to install as an app:
+- in progress
 
 Contact info: catboatfish@gmail.com
 
 ## Version history
-- 0.0.0-pre-alpha - first version uploaded properly, not functional
+- 0.0.0-pre-alpha - 6/1/26 - first version uploaded properly, not functional
