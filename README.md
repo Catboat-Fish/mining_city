@@ -6,6 +6,8 @@ This README is not complete yet.
 
 This game (currently mining_city) is a game about city and resource management. In this game, you are in charge of building a city are tasked with managing resource input and output through natural disasters and social unrest.
 
+Note: the game is currently in very early development, and therefore unplayable. A playable version should be out soon.
+
 ## Useful information
 
 How to install as an app: in progress
