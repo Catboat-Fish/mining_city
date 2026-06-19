@@ -26,3 +26,4 @@ Contact info: catboatfish@gmail.com
 
 ## Version history
 - 0.0.0-pre-alpha - 6/1/26 - first version uploaded properly, not functional
+- 0.0.1-pre-alpha = 6/18/26 - main and main_functions worked on, not functional

@@ -4,11 +4,10 @@ from stats import game_data
 
 
 # definitions
+# note: main makes sure it is a positive integer
 
 def make_worker(quantity):
-    if not isinstance(quantity, int) or quantity <= 0:
-        return 'Input a positive integer.'
-    elif quantity > resources["tools"]:
+    if quantity > resources["tools"]:
             return f'Not enough tools ({resources["tools"]}/{quantity}). Assign workers to the factory.'
     elif quantity > living["residents"]:
         return f'Not enough residents ({living["residents"]}/{quantity}). More children need to be born and grow up.'
@@ -18,9 +17,7 @@ def make_worker(quantity):
         return f'{city["name"]} has successfully recruited {quantity} free workers. Remember to assign them to a station.'   
 
 def assign_worker(station, quantity):
-    if not isinstance(quantity, int) or quantity <= 0:
-        return 'Input a positive integer.'
-    elif quantity > living["free_workers"]:
+    if quantity > living["free_workers"]:
         return f'Not enough free workers ({living["free_workers"]}/{quantity}). Equip more residents with tools.'
     else:
         living["free_workers"] -= quantity
@@ -29,10 +26,8 @@ def assign_worker(station, quantity):
 
 def make_babies(quantity):
     housing = free_housing() # reduces calls
-    fertile_people = (living["residents"] + living["free_workers"] + total_workers())
-    if not isinstance(quantity, int) or quantity <= 0:
-        return 'Input a positive integer.'
-    elif quantity > housing:
+    fertile_people = (total_adults() - (living["fetuses"] * 2)) # adults minus the amount already producing new people
+    if quantity > housing:
         return f'Not enough free housing ({housing}/{quantity}). Build more housing at the construction site.'
     elif (quantity + living["fetuses"]) > resources["food"]:
         return f'Not enough food ({resources["food"]}/{quantity + living["fetuses"]}). Assign workers to the farm.'
@@ -43,8 +38,6 @@ def make_babies(quantity):
         return f'{city["name"]} has successfully created {quantity} babies. Wait one turn for them to be born and three turns for them to become adults.'     
 
 def expand_housing(quantity): #WIP
-    if not isinstance(quantity, int) or quantity <= 0:
-        return 'Input a positive integer.'
     if (quantity * cost["house"]["wood"]) > resources["wood"]: # resource calculator, replace once better is built in expand_station
         return f'Not enough resources ({resources["wood"]}/{quantity * cost["house"]["wood"]}). Assign workers to the lumber mill.'
     elif math.ceil(quantity / 10) > stations["construction"]["workers"]: # 10 houses per worker
@@ -56,8 +49,6 @@ def expand_station(station, quantity): # WIP, make seperate function for housing
     # costs[] = cost[station]
     if False:
         pass
-    #elif not isinstance(quantity, int) or quantity <= 0:
-    #    return 'Input a positive integer.'
     elif (quantity) > stations["construction"]["workers"]:
         return f'Not enough construction workers ({stations["construction"]["workers"]}/{quantity}). Assign more to the construction site.'
     else:

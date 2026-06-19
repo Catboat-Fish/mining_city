@@ -12,8 +12,11 @@ living = game_data["living"]
 def total_workers(): # active workers
     return sum(s.get("workers", 0) + s.get("deployed", 0) for s in stations.values())
 
+def total_adults():
+    return living["residents"] + living["free_workers"] + total_workers()
+
 def total_citizens(): # total people (for census purposes)
-    return living["residents"] + living["free_workers"] + living["children"] + living["teenagers"] + total_workers()
+    return + living["children"] + living["teenagers"] + total_adults()
 
 def total_people(): # total people + fetuses (for housing calculations)
     return living["fetuses"] + total_citizens()
