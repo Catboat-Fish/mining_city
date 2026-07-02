@@ -4,6 +4,10 @@ These are development notes for the developer. Nothing of importance for you wil
 
 Notes: [DEP] means depends on if needed, [WIP] means work-in-progress feature for a later version that should be ignored for now, pop means people/population
 
+## Quotation Formatting Logic
+
+- "" for code
+- '' for prints/returns
 
 ## Turn Logic
 
@@ -17,6 +21,17 @@ Notes: [DEP] means depends on if needed, [WIP] means work-in-progress feature fo
 - unrest [DEP]
 - natural disaster [WIP]
 
+## Error Formating Logic
+
+The basis is that if a person doesn't try again, it will waste the least amount of resources possible in the case of multiple errors. Later, it will be reworked into a system that outputs all errors at once.
+
+- not enough resources
+- not enough structures
+- not enough people
+
+## Error Formating Idea
+
+create an empty string to store errors. If it is empty at the end, give the success message and run the success code. Else, return the error string.
 
 ## markdown formatting notes (for the notes and README)
 
